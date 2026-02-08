@@ -6,6 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
+    <link rel="icon" type="image/png" href="public/white-love.png" />
     <title>Will you be my Valentine?</title>
 
     <!-- Confetti library -->
@@ -84,7 +85,6 @@
         font-weight: 800;
         border-radius: 999px;
         border: none;
-        cursor: pointer;
         box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
         user-select: none;
         -webkit-tap-highlight-color: transparent;
@@ -96,6 +96,7 @@
       #yesBtn {
         left: 18%;
         background: var(--yes);
+        cursor: pointer;
         color: #fff;
       }
       #yesBtn:hover {
@@ -129,6 +130,7 @@
         width: min(380px, 90vw);
         margin: 0 auto;
         display: block;
+        border-radius: 10px;
       }
 
       @keyframes pop {
@@ -149,7 +151,7 @@
 
     <main class="card">
       <!-- ANIMAL WITH HEART -->
-      <svg class="art" viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg">
+      <!-- <svg class="art" viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="fur" x1="0" x2="1">
             <stop offset="0" stop-color="#f7c7a1" />
@@ -190,24 +192,46 @@
                C198 148 194 144 190 144Z"
           fill="#ff7aa2"
         />
-      </svg>
+      </svg> -->
 
-      <h1>Imane will you be my valentine?</h1>
+      <img
+        class="fireworks"
+        src="public/freepik__digital-illustration-a-25yearold-man-on-one-knee-p__58204.png"
+        alt="Couple love gif"
+      />
+
+      <h1>Will you be my valentine?</h1>
 
       <section class="button-zone" id="zone">
-        <button id="yesBtn">Yes</button>
-        <button id="noBtn">No</button>
+        <button id="yesBtn">Yes 🎀</button>
+        <button id="noBtn">No 💔</button>
       </section>
 
       <!-- HINT (ONLY FIRST SECTION) -->
-      <div class="hint" id="hint">“No” seems a bit shy 😈</div>
+      <div class="hint" id="hint">“No” seems a bit shy 😈😂😂</div>
 
-      <section class="result" id="result">
-        <h2>YAY! 🎉</h2>
+      <section class="result" id="yesResult">
+        <h3>YAY! 🎉</h3>
+        <!-- <img
+          class="fireworks"
+          src="public/proposal-ring.jpg"
+          alt="Couple love gif"
+        /> -->
         <img
           class="fireworks"
-          src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif"
-          alt="Fireworks"
+          height="280"
+          src="public/9139659.jpg"
+          alt="Couple love gif"
+        />
+        <!-- src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif" -->
+      </section>
+      <section class="result" id="noResult">
+        <h3>Oops!, Try again 💔🥀🥺</h3>
+        <img
+          class="fireworks"
+          height="250"
+          src="public/rohee-romi.gif"
+          alt="Rohee Romi gif"
         />
       </section>
     </main>
@@ -216,7 +240,8 @@
       const zone = document.getElementById("zone");
       const yesBtn = document.getElementById("yesBtn");
       const noBtn = document.getElementById("noBtn");
-      const result = document.getElementById("result");
+      const yesResult = document.getElementById("yesResult");
+      const noResult = document.getElementById("noResult");
       const hint = document.getElementById("hint");
 
       /* ---------- CONFETTI (FIXED FULL SCREEN) ---------- */
@@ -316,9 +341,18 @@
       yesBtn.addEventListener("click", () => {
         zone.style.display = "none";
         hint.style.display = "none"; // HIDE THE HINT
-        result.style.display = "block";
+        yesResult.style.display = "block";
         resizeConfettiCanvas();
         fullScreenConfetti();
+      });
+
+      /* ---------- NO CLICK ---------- */
+      noBtn.addEventListener("click", () => {
+        zone.style.display = "none";
+        hint.style.display = "none"; // HIDE THE HINT
+        noResult.style.display = "block";
+        resizeConfettiCanvas();
+        // fullScreenConfetti();
       });
     </script>
   </body>
